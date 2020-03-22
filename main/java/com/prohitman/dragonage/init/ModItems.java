@@ -1,6 +1,7 @@
 package com.prohitman.dragonage.init;
 
 import com.prohitman.dragonage.DragonAge;
+import com.prohitman.dragonage.items.SteelShieldItem;
 import com.prohitman.dragonage.util.ModItemTiers;
 
 import net.minecraft.item.AxeItem;
@@ -24,6 +25,7 @@ public class ModItems
 	//Weapons
 	public static final RegistryObject<Item> STEEL_SWORD = ITEMS.register("steel_sword", () -> new SwordItem(ModItemTiers.STEEL, 3, -2.4F, new Item.Properties().group(ModItemGroups.DRAGON_AGE_WEAPONS)));
 	public static final RegistryObject<Item> GREAT_STEEL_SWORD = ITEMS.register("great_steel_sword", () -> new SwordItem(ModItemTiers.STEEL, 4, -3.0F, new Item.Properties().group(ModItemGroups.DRAGON_AGE_WEAPONS)));
+	public static final RegistryObject<Item> STEEL_SHIELD = ITEMS.register("steel_shield", () -> new SteelShieldItem(new Item.Properties().maxDamage(500).group(ModItemGroups.DRAGON_AGE_WEAPONS)));
 	
 	//Tools
 	public static final RegistryObject<Item> STEEL_SHOVEL = ITEMS.register("steel_shovel", () -> new ShovelItem(ModItemTiers.STEEL, 1.5F, -3.0F, new Item.Properties().group(ItemGroup.TOOLS)));

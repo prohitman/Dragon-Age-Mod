@@ -13,10 +13,14 @@
 	//Weapons
 	"item.dragonage.steel_sword": "Steel Sword",
 	"item.dragonage.great_steel_sword": "Great Steel Sword",
+	"item.dragonage.steel_shield": "Steel Shield",
 	
 	//Tools
 	"item.dragonage.steel_pickaxe": "Steel Pickaxe",
 	"item.dragonage.steel_axe": "Steel Axe",
 	"item.dragonage.steel_shovel": "Steel Shovel",
-	"item.dragonage.steel_hoe": "Steel Hoe"
+	"item.dragonage.steel_hoe": "Steel Hoe",
+	
+	//Blocks
+	"block.dragonage.steel_block": "Block Of Steel"
 }

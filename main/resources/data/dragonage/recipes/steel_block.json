@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "dragonage:steel_ingot"
+    }
+  },
+  "result": {
+    "item": "dragonage:steel_block"
+  }
+}
