@@ -1,0 +1,22 @@
+{
+	"language.name": "English",
+	"language.region": "United States",
+	"language.code": "en_us",
+	
+	//ItemGroups
+	
+	"itemGroup.dragon_age_weapons": "Dragon Age Weapons",
+	
+	//Items
+	"item.dragonage.steel_ingot": "Steel Ingot",
+	
+	//Weapons
+	"item.dragonage.steel_sword": "Steel Sword",
+	"item.dragonage.great_steel_sword": "Great Steel Sword",
+	
+	//Tools
+	"item.dragonage.steel_pickaxe": "Steel Pickaxe",
+	"item.dragonage.steel_axe": "Steel Axe",
+	"item.dragonage.steel_shovel": "Steel Shovel",
+	"item.dragonage.steel_hoe": "Steel Hoe"
+}

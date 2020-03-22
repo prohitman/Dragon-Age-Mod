@@ -1,0 +1,25 @@
+{
+    "parent": "item/handheld",
+	"display": {
+		"thirdperson_righthand": 
+		{
+			"scale": [2, 2, 2]
+		},
+		"thirdperson_lefthand": 
+		{
+			"scale": [2, 2, 2]
+		},
+		"firstperson_righthand": 
+		{
+			"scale": [2, 2, 2]
+		},
+		"firstperson_lefthand": 
+		{
+			"scale": [2, 2, 2]
+		}
+	},
+    "textures": 
+    {
+        "layer0": "dragonage:item/great_steel_sword"
+    }
+}
