@@ -3,6 +3,7 @@ package com.prohitman.dragonage;
 import com.prohitman.dragonage.init.ModBlocks;
 import com.prohitman.dragonage.init.ModItemGroups;
 import com.prohitman.dragonage.init.ModItems;
+import com.prohitman.dragonage.init.ModRecipes;
 
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -37,6 +38,7 @@ public class DragonAge
         
         ModItems.ITEMS.register(modEventBus);
         ModBlocks.BLOCKS.register(modEventBus);
+        ModRecipes.RECIPE_SERIALIZERS.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -75,4 +77,6 @@ public class DragonAge
     public void onServerStarting(FMLServerStartingEvent event) {
        
     }
+    
+    //"rotation": [45, 0, 0],
 }

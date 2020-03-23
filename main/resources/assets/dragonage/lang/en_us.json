@@ -6,6 +6,7 @@
 	//ItemGroups
 	
 	"itemGroup.dragon_age_weapons": "Dragon Age Weapons",
+	"itemGroup.dragon_age_tools": "Dragon Age Tools",
 	
 	//Items
 	"item.dragonage.steel_ingot": "Steel Ingot",
@@ -13,7 +14,25 @@
 	//Weapons
 	"item.dragonage.steel_sword": "Steel Sword",
 	"item.dragonage.great_steel_sword": "Great Steel Sword",
+	
+	//Shields
 	"item.dragonage.steel_shield": "Steel Shield",
+	"item.dragonage.steel_shield.black": "Black Steel Shield",
+  	"item.dragonage.steel_shield.red": "Red Steel Shield",
+  	"item.dragonage.steel_shield.green": "Green Steel Shield",
+  	"item.dragonage.steel_shield.brown": "Brown Steel Shield",
+  	"item.dragonage.steel_shield.blue": "Blue Steel Shield",
+  	"item.dragonage.steel_shield.purple": "Purple Steel Shield",
+  	"item.dragonage.steel_shield.cyan": "Cyan Steel Shield",
+  	"item.dragonage.steel_shield.light_gray": "Light Gray Steel Shield",
+  	"item.dragonage.steel_shield.gray": "Gray Steel Shield",
+  	"item.dragonage.steel_shield.pink": "Pink Steel Shield",
+  	"item.dragonage.steel_shield.lime": "Lime Steel Shield",
+  	"item.dragonage.steel_shield.yellow": "Yellow Steel Shield",
+  	"item.dragonage.steel_shield.light_blue": "Light Blue Steel Shield",
+  	"item.dragonage.steel_shield.magenta": "Magenta Steel Shield",
+  	"item.dragonage.steel_shield.orange": "Orange Steel Shield",
+  	"item.dragonage.steel_shield.white": "White Steel Shield",
 	
 	//Tools
 	"item.dragonage.steel_pickaxe": "Steel Pickaxe",

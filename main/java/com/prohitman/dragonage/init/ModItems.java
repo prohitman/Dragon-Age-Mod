@@ -28,8 +28,8 @@ public class ModItems
 	public static final RegistryObject<Item> STEEL_SHIELD = ITEMS.register("steel_shield", () -> new SteelShieldItem(new Item.Properties().maxDamage(500).group(ModItemGroups.DRAGON_AGE_WEAPONS)));
 	
 	//Tools
-	public static final RegistryObject<Item> STEEL_SHOVEL = ITEMS.register("steel_shovel", () -> new ShovelItem(ModItemTiers.STEEL, 1.5F, -3.0F, new Item.Properties().group(ItemGroup.TOOLS)));
-	public static final RegistryObject<Item> STEEL_PICKAXE = ITEMS.register("steel_pickaxe", () -> new PickaxeItem(ModItemTiers.STEEL, 1, -2.8F, new Item.Properties().group(ItemGroup.TOOLS)));
-	public static final RegistryObject<Item> STEEL_AXE = ITEMS.register("steel_axe", () -> new AxeItem(ModItemTiers.STEEL, 6.0F, -3.1F, new Item.Properties().group(ItemGroup.TOOLS)));
-	public static final RegistryObject<Item> STEEL_HOE = ITEMS.register("steel_hoe", () -> new HoeItem(ModItemTiers.STEEL, -1.5F, new Item.Properties().group(ItemGroup.TOOLS)));
+	public static final RegistryObject<Item> STEEL_SHOVEL = ITEMS.register("steel_shovel", () -> new ShovelItem(ModItemTiers.STEEL, 1.5F, -3.0F, new Item.Properties().group(ModItemGroups.DRAGON_AGE_TOOLS)));
+	public static final RegistryObject<Item> STEEL_PICKAXE = ITEMS.register("steel_pickaxe", () -> new PickaxeItem(ModItemTiers.STEEL, 1, -2.8F, new Item.Properties().group(ModItemGroups.DRAGON_AGE_TOOLS)));
+	public static final RegistryObject<Item> STEEL_AXE = ITEMS.register("steel_axe", () -> new AxeItem(ModItemTiers.STEEL, 6.0F, -3.1F, new Item.Properties().group(ModItemGroups.DRAGON_AGE_TOOLS)));
+	public static final RegistryObject<Item> STEEL_HOE = ITEMS.register("steel_hoe", () -> new HoeItem(ModItemTiers.STEEL, -1.5F, new Item.Properties().group(ModItemGroups.DRAGON_AGE_TOOLS)));
 }

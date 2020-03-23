@@ -13,4 +13,11 @@ public class ModItemGroups
 	         return new ItemStack(ModItems.STEEL_SWORD.get());
 	      }
 	   }).setNoScrollbar().setNoTitle();
+	
+	public static final ItemGroup DRAGON_AGE_TOOLS = (new ItemGroup("dragon_age_tools") {
+	      @OnlyIn(Dist.CLIENT)
+	      public ItemStack createIcon() {
+	         return new ItemStack(ModItems.STEEL_AXE.get());
+	      }
+	   }).setNoScrollbar().setNoTitle();
 }
