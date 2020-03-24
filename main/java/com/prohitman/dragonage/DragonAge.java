@@ -4,6 +4,7 @@ import com.prohitman.dragonage.init.ModBlocks;
 import com.prohitman.dragonage.init.ModItemGroups;
 import com.prohitman.dragonage.init.ModItems;
 import com.prohitman.dragonage.init.ModRecipes;
+import com.prohitman.dragonage.network.DragonAgePacketHandler;
 
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -58,6 +59,7 @@ public class DragonAge
 
     private void setup(final FMLCommonSetupEvent event)
     {
+    	DragonAgePacketHandler.init();
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {

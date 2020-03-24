@@ -16,7 +16,7 @@ import net.minecraftforge.fml.network.NetworkEvent;
 
 public class MessageExtendedReachAttack implements IMessage<MessageExtendedReachAttack>
 {
-	private int entityId ;
+	private int entityId;
 
 	public MessageExtendedReachAttack() {
 		
