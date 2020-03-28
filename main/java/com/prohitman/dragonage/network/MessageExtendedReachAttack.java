@@ -90,49 +90,4 @@ public class MessageExtendedReachAttack implements IMessage<MessageExtendedReach
       );
       ctx.get().setPacketHandled(true);// no response message
   }
-
-    
-        /*public void handle(MessageExtendedReachAttack message, Supplier<NetworkEvent.Context> ctx) 
-        {
-        	
-            // Know it will be on the server so make it thread-safe
-        	ctx.get().enqueueWork(() -> {
-            
-        		final ServerPlayerEntity  thePlayer = (ServerPlayerEntity) ctx.get().getSender();
-                  new Runnable()
-                  {
-                      @Override
-                      public void run() 
-                      {
-                          Entity theEntity = thePlayer.getEntityWorld().getEntityByID(message.entityId);
-                          
-                          if (thePlayer.getHeldItemMainhand().getItem() instanceof IExtendedReach)
-                          {
-                              IExtendedReach theExtendedReachWeapon = (IExtendedReach)thePlayer.getHeldItemMainhand().getItem();
-                              double reachSq = theExtendedReachWeapon.getReach()* theExtendedReachWeapon.getReach();
-                              if (!thePlayer.canEntityBeSeen(theEntity))
-                              {
-                            	  reachSq /= 4.0d;
-                              }
-                              if (reachSq >= thePlayer.getDistanceSq(theEntity))
-                              {
-                            	  if (theEntity instanceof ItemEntity || theEntity instanceof ExperienceOrbEntity || theEntity instanceof ArrowEntity || theEntity == thePlayer)
-                                  {
-                                      thePlayer.connection.disconnect(new TextComponentTranslation("multiplayer.disconnect.invalid_entity_attacked", new Object[0]));
-                                      //this.serverController.logWarning("Player " + thePlayer.getName() + " tried to attack an invalid entity");
-                                      supplier.get().setPacketHandled(true);
-
-                                  }
-
-                                  thePlayer.attackTargetEntityWithCurrentItem(theEntity);
-                              }
-                          }
-                          return; // no response in this case
-                      }
-                
-            
-            return null; // no response message
-        }
-        	});
-        }*/
 }

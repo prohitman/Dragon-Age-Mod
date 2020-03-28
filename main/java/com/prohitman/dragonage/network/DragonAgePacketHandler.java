@@ -12,15 +12,16 @@ public class DragonAgePacketHandler
 	
 	private static int id = 0;
 	
-	private static final SimpleChannel HANDLER = NetworkRegistry.ChannelBuilder
+	public static SimpleChannel HANDLER;
+		
+	public static void init()
+	{HANDLER = NetworkRegistry.ChannelBuilder
 			.named(new ResourceLocation(DragonAge.MOD_ID, "network"))
 			.clientAcceptedVersions(PROTOCOL_VERSION::equals)
 			.serverAcceptedVersions(PROTOCOL_VERSION::equals)
 			.networkProtocolVersion(() -> PROTOCOL_VERSION)
 			.simpleChannel();
-	
-	public static void init()
-	{
+		
 		register(MessageExtendedReachAttack.class, new MessageExtendedReachAttack());
 		//HANDLER.sendToServer(new MessageExtendedReachAttack());
 	}

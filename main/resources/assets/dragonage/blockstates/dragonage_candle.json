@@ -1,5 +1,7 @@
 {
     "variants": {
-        "": { "model": "dragonage:block/dragonage_candle" }
+        "candles=1": { "model": "dragonage:block/dragonage_candle1" },
+        "candles=2": { "model": "dragonage:block/dragonage_candle2" },
+        "candles=3": { "model": "dragonage:block/dragonage_candle3" }
     }
 }
