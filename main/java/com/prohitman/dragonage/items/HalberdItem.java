@@ -26,7 +26,6 @@ public class HalberdItem extends TieredItem implements IExtendedReach
 	private final float attackSpeed;
 	private final float attackReach;
 	
-	
 	public HalberdItem(IItemTier tierIn, float attackDamageIn, float attackSpeedIn, float attackReachIn, Item.Properties builder) 
 	{
 		super(tierIn, builder);
@@ -41,7 +40,7 @@ public class HalberdItem extends TieredItem implements IExtendedReach
 	}
 	
 	@Override
-	public float getReach() 
+	public float getReach()
 	{
 		return this.attackReach;
 	}
@@ -95,6 +94,7 @@ public class HalberdItem extends TieredItem implements IExtendedReach
 	   /**
 	    * Gets a map of item attribute modifiers, used by ItemSword to increase hit damage.
 	    */
+	   @Override
 	   public Multimap<String, AttributeModifier> getAttributeModifiers(EquipmentSlotType equipmentSlot) {
 	      @SuppressWarnings("deprecation")
 		Multimap<String, AttributeModifier> multimap = super.getAttributeModifiers(equipmentSlot);

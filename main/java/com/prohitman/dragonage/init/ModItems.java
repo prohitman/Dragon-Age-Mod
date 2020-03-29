@@ -27,7 +27,7 @@ public class ModItems
 	public static final RegistryObject<Item> STEEL_SWORD = ITEMS.register("steel_sword", () -> new SwordItem(ModItemTiers.STEEL, 3, -2.4F, new Item.Properties().group(ModItemGroups.DRAGON_AGE_WEAPONS)));
 	public static final RegistryObject<Item> GREAT_STEEL_SWORD = ITEMS.register("great_steel_sword", () -> new SwordItem(ModItemTiers.STEEL, 4, -3.0F, new Item.Properties().group(ModItemGroups.DRAGON_AGE_WEAPONS)));
 	public static final RegistryObject<Item> STEEL_SHIELD = ITEMS.register("steel_shield", () -> new SteelShieldItem(new Item.Properties().maxDamage(500).group(ModItemGroups.DRAGON_AGE_WEAPONS)));
-	public static final RegistryObject<Item> STEEL_HALBERD = ITEMS.register("steel_halberd", () -> new HalberdItem(ModItemTiers.STEEL, 4, -3.0F, 10.0F, new Item.Properties().group(ModItemGroups.DRAGON_AGE_WEAPONS)));
+	public static final RegistryObject<Item> STEEL_HALBERD = ITEMS.register("steel_halberd", () -> new HalberdItem(ModItemTiers.STEEL, 4, -3.0F, 9.0F, new Item.Properties().group(ModItemGroups.DRAGON_AGE_WEAPONS)));
 	public static final RegistryObject<Item> STEEL_BATTLE_AXE = ITEMS.register("steel_battle_axe", () -> new AxeItem(ModItemTiers.STEEL, 8.0F, -3.1F, new Item.Properties().group(ModItemGroups.DRAGON_AGE_WEAPONS)));
 	
 	//Tools

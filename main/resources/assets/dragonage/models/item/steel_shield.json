@@ -1,8 +1,9 @@
 {
 	"credit": "Made with Blockbench",
-"parent": "builtin/entity",
+"parent": "item/generated",
 	"textures": {
-		"1": " dragonage:entity/steel_shield/steel_shield_base"
+		"1": " dragonage:item/steel_shield_base"
+		
 	},
 	"elements": [
 		{

@@ -1,8 +1,5 @@
 package com.prohitman.dragonage.init;
 
-import java.util.List;
-import java.util.Optional;
-
 import com.prohitman.dragonage.DragonAge;
 import com.prohitman.dragonage.network.DragonAgePacketHandler;
 import com.prohitman.dragonage.network.MessageExtendedReachAttack;
@@ -14,6 +11,7 @@ import net.minecraft.client.entity.player.ClientPlayerEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemFrameEntity;
+import net.minecraft.entity.projectile.ProjectileHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
@@ -37,7 +35,6 @@ public class ModEvents
 	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
 	public static void onEvent(InputEvent event)
 	{
-		
 		ClientPlayerEntity player = Minecraft.getInstance().player;
 		if (player != null)
 		{
@@ -65,17 +62,17 @@ public class ModEvents
             	IExtendedReach ieri = (IExtendedReach) itemstack.getItem();
                 float reach = ieri.getReach();
                 getMouseOverExtended2(reach);
-                if (Minecraft.getInstance().objectMouseOver != null)
+                net.minecraftforge.client.event.InputEvent.ClickInputEvent inputEvent = net.minecraftforge.client.ForgeHooksClient.onClickInput(0, Minecraft.getInstance().gameSettings.keyBindAttack, Hand.MAIN_HAND);
+                if (!inputEvent.isCanceled())
                 {
                     switch (Minecraft.getInstance().objectMouseOver.getType())
                     {
                     	case ENTITY:
 	                    {
 	                    	DragonAgePacketHandler.HANDLER.sendToServer(new MessageExtendedReachAttack(((EntityRayTraceResult)Minecraft.getInstance().objectMouseOver).getEntity().getEntityId()));
-	                    	Entity entityraytraceresult = ((EntityRayTraceResult)Minecraft.getInstance().objectMouseOver).getEntity();
 	                    	if (!thePlayer.isSpectator())
 	                    	{
-	                    		thePlayer.attackTargetEntityWithCurrentItem(entityraytraceresult);
+	                    		Minecraft.getInstance().playerController.attackEntity(thePlayer, ((EntityRayTraceResult)Minecraft.getInstance().objectMouseOver).getEntity());
 	                    		thePlayer.resetCooldown();
 	                    	}
 	                    	break;
@@ -100,8 +97,9 @@ public class ModEvents
                             thePlayer.resetCooldown();
                             net.minecraftforge.common.ForgeHooks.onEmptyLeftClick(thePlayer);
                     }
-
+                    if(inputEvent.shouldSwingHand())
                     thePlayer.swingArm(Hand.MAIN_HAND);
+                    
                 }
             }
         }
@@ -133,75 +131,36 @@ public class ModEvents
                 {
                     d1 = Minecraft.getInstance().objectMouseOver.getHitVec().squareDistanceTo(vec3d);
                 }
+                
+                d1 = d1 * d1;
 
                 Vec3d vec3d1 = entity.getLook(1.0F);
                 Vec3d vec3d2 = vec3d.add(vec3d1.x * d0, vec3d1.y * d0, vec3d1.z * d0);
-                Entity pointedEntity = null;
-                Vec3d vec3d3 = null;
-                List<Entity> list = Minecraft.getInstance().world.getEntitiesInAABBexcluding(entity, entity.getBoundingBox().expand(vec3d1.scale(d0)).grow(1.0D, 1.0D, 1.0D), (p_213489_0_) -> 
-            	{
-          	      return !p_213489_0_.isSpectator() && p_213489_0_.canBeCollidedWith();
-            	});
-                
-                double d2 = d1;
-
-                for (int j = 0; j < list.size(); ++j)
+                AxisAlignedBB axisalignedbb = entity.getBoundingBox().expand(vec3d1.scale(d0)).grow(1.0D, 1.0D, 1.0D);
+                EntityRayTraceResult entityraytraceresult = ProjectileHelper.rayTraceEntities(entity, vec3d, vec3d2, axisalignedbb, (p_215312_0_) -> {
+                   return !p_215312_0_.isSpectator() && p_215312_0_.canBeCollidedWith();
+                }, d1);
+                if(entityraytraceresult != null)
                 {
-                    Entity entity1 = list.get(j);
-                    AxisAlignedBB axisalignedbb = entity1.getBoundingBox().grow((double)entity1.getCollisionBorderSize());
-                    Optional<Vec3d> optional = axisalignedbb.rayTrace(vec3d, vec3d2);
-                    Vec3d hitvec = new EntityRayTraceResult(pointedEntity, vec3d).getHitVec();
-                    		/*ProjectileHelper.rayTraceEntities(entity1, vec3d, vec3d2, axisalignedbb, (p_215312_0_) -> {
- 		               return !p_215312_0_.isSpectator() && p_215312_0_.canBeCollidedWith();
- 		            }, d1);*/
+                	 Entity pointedEntity = entityraytraceresult.getEntity();
+                     Vec3d vec3d3 = entityraytraceresult.getHitVec();
+                     double d2 = vec3d.squareDistanceTo(vec3d3);
 
-                    if (axisalignedbb.contains(vec3d))
-                    {
-                        if (d2 >= 0.0D)
-                        {
-                            pointedEntity = entity1;
-                            vec3d3 = optional == null ? vec3d : hitvec;
-                            d2 = 0.0D;
-                        }
-                    }
-                    else if (optional.isPresent())
-                    {
-                        double d3 = vec3d.squareDistanceTo(hitvec);//distanceTo(hitvec);
-
-                        if (d3 < d2 || d2 == 0.0D)
-                        {
-                            if (entity1.getLowestRidingEntity() == entity.getLowestRidingEntity() && !entity1.canRiderInteract())
-                            {
-                                if (d2 == 0.0D)
-                                {
-                                    pointedEntity = entity1;
-                                    vec3d3 = hitvec;
-                                }
-                            }
-                            else
-                            {
-                                pointedEntity = entity1;
-                                vec3d3 = hitvec;
-                                d2 = d3;
-                            }
-                        }
-                    }
-                }
-
-                if (pointedEntity != null && flag && vec3d.squareDistanceTo(vec3d3)/*distanceTo(vec3d3)*/ > dist)
+                if (pointedEntity != null && flag && d2 > d1)
                 {
                     pointedEntity = null;
                     Minecraft.getInstance().objectMouseOver = BlockRayTraceResult.createMiss(vec3d3, Direction.getFacingFromVector(vec3d1.x, vec3d1.y, vec3d1.z), new BlockPos(vec3d3));
                 }      
                 
-                if (pointedEntity != null && (d2 < d1 || Minecraft.getInstance().objectMouseOver == null))
+                else if (pointedEntity != null && (d2 < d1 || Minecraft.getInstance().objectMouseOver == null))
                 {
-                	Minecraft.getInstance().objectMouseOver = new EntityRayTraceResult(pointedEntity, vec3d3);
+                	Minecraft.getInstance().objectMouseOver = entityraytraceresult;
 
                     if (pointedEntity instanceof LivingEntity || pointedEntity instanceof ItemFrameEntity)
                     {
                         Minecraft.getInstance().pointedEntity = pointedEntity;
                     }
+                }
                 }
 
                 Minecraft.getInstance().getProfiler().endSection();

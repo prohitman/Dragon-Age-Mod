@@ -19,7 +19,7 @@ public class ModBlocks
 	public static final RegistryObject<Block> STEEL_BLOCK = BLOCKS.register("steel_block", () -> new SteelBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(5.5F, 6.5F).sound(SoundType.METAL)));
 
 	//Decorations
-	public static final RegistryObject<Block> CANDLE = BLOCKS.register("dragonage_candle", () -> new CandleBlock(Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.0F, 0.0F).lightValue(8).sound(SoundType.SCAFFOLDING)));
+	public static final RegistryObject<Block> CANDLE = BLOCKS.register("dragonage_candle", () -> new CandleBlock(Block.Properties.create(Material.MISCELLANEOUS).notSolid().hardnessAndResistance(0.0F, 0.0F).lightValue(10).sound(SoundType.SCAFFOLDING)));
 	
 	
 	//Tile Entities

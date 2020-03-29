@@ -79,6 +79,4 @@ public class DragonAge
     public void onServerStarting(FMLServerStartingEvent event) {
        
     }
-    
-    //"rotation": [45, 0, 0],
 }

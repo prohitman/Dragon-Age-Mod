@@ -68,7 +68,7 @@ public class CandleBlock extends Block
 	@SuppressWarnings("deprecation")
 	public int getLightValue(BlockState state) 
 	{
-	      return super.getLightValue(state) + 3 * state.get(CANDLES);
+	      return super.getLightValue(state) + state.get(CANDLES);
 	}
 	
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
@@ -99,7 +99,7 @@ public class CandleBlock extends Block
 	
 	@SuppressWarnings("deprecation")
 	public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-	      return !stateIn.isValidPosition(worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+	      return facing == Direction.DOWN && !stateIn.isValidPosition(worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
 	   }
 	
 	protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) 
