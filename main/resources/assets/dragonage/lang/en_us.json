@@ -14,6 +14,8 @@
 	//Weapons
 	"item.dragonage.steel_sword": "Steel Sword",
 	"item.dragonage.great_steel_sword": "Great Steel Sword",
+	"item.dragonage.steel_halberd": "Steel Halberd",
+	"item.dragonage.steel_battle_axe": "Steel Battle Axe",
 	
 	//Shields
 	"item.dragonage.steel_shield": "Steel Shield",
@@ -41,5 +43,9 @@
 	"item.dragonage.steel_hoe": "Steel Hoe",
 	
 	//Blocks
-	"block.dragonage.steel_block": "Block Of Steel"
+	"block.dragonage.steel_block": "Block Of Steel",
+	"block.dragonage.dragonage_candle": "Candle",
+	
+	//Containers
+	"container.forgering_table": "Forging Table Container"
 }

@@ -88,28 +88,29 @@ public class CandleBlock extends Block
 	{
 		switch(state.get(CANDLES)) {
 		case 1:
-			default:
-	      return ONE_CANDLE;
-			case 2:
-				return TWO_CANDLES;
-			case 3: 
-				return THREE_CANDLES;
+		default:
+			return ONE_CANDLE;
+		case 2:
+			return TWO_CANDLES;
+		case 3: 
+			return THREE_CANDLES;
 		}
 	}
 	
 	@SuppressWarnings("deprecation")
 	public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-	      return facing == Direction.DOWN && !stateIn.isValidPosition(worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+	      return func_220277_j(stateIn).getOpposite() == facing && !stateIn.isValidPosition(worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
 	   }
 	
-	protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) 
+	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) 
 	{
-	      return !state.getCollisionShape(worldIn, pos).project(Direction.UP).isEmpty();
+	      Direction direction = func_220277_j(state).getOpposite();
+	      return Block.hasEnoughSolidSide(worldIn, pos.offset(direction), direction.getOpposite());
 	}
 
-	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-		BlockPos blockpos = pos.down();
-		return this.isValidGround(worldIn.getBlockState(blockpos), worldIn, blockpos);
+	protected static Direction func_220277_j(BlockState p_220277_0_) 
+	{
+		return Direction.UP;
 	}
 	
 	public PushReaction getPushReaction(BlockState state) 
@@ -129,10 +130,14 @@ public class CandleBlock extends Block
 	@OnlyIn(Dist.CLIENT)
 	public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) 
 	{
-      double d0 = (double)pos.getX() + 0.5D;
-      double d1 = (double)pos.getY() + 0.55D;
-      double d2 = (double)pos.getZ() + 0.5D;
-      worldIn.addParticle(ParticleTypes.SMOKE, d0, d1, d2, 0.0D, 0.0D, 0.0D);
-      worldIn.addParticle(ParticleTypes.FLAME, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+		if(stateIn.get(CANDLES) == 1)
+		{
+	      double d0 = (double)pos.getX() + 0.5D;
+	      double d1 = (double)pos.getY() + 0.55D;
+	      double d2 = (double)pos.getZ() + 0.5D;
+	      worldIn.addParticle(ParticleTypes.SMOKE, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+	      worldIn.addParticle(ParticleTypes.FLAME, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+		}
+		
 	}
 }

@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "dragonage:block/forgering_table" },
+        "facing=south": { "model": "dragonage:block/forgering_table", "y": 180 },
+        "facing=west":  { "model": "dragonage:block/forgering_table", "y": 270 },
+        "facing=east":  { "model": "dragonage:block/forgering_table", "y": 90 }
+    }
+}

@@ -2,8 +2,8 @@ package com.prohitman.dragonage.init;
 
 import com.prohitman.dragonage.DragonAge;
 import com.prohitman.dragonage.items.HalberdItem;
+import com.prohitman.dragonage.items.ModItemTiers;
 import com.prohitman.dragonage.items.SteelShieldItem;
-import com.prohitman.dragonage.util.ModItemTiers;
 
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.HoeItem;

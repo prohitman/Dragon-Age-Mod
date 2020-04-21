@@ -1,9 +1,11 @@
 package com.prohitman.dragonage;
 
 import com.prohitman.dragonage.init.ModBlocks;
+import com.prohitman.dragonage.init.ModContainerTypes;
 import com.prohitman.dragonage.init.ModItemGroups;
 import com.prohitman.dragonage.init.ModItems;
 import com.prohitman.dragonage.init.ModRecipes;
+import com.prohitman.dragonage.init.ModTileEntityTypes;
 import com.prohitman.dragonage.network.DragonAgePacketHandler;
 
 import net.minecraft.item.BlockItem;
@@ -40,6 +42,8 @@ public class DragonAge
         ModItems.ITEMS.register(modEventBus);
         ModBlocks.BLOCKS.register(modEventBus);
         ModRecipes.RECIPE_SERIALIZERS.register(modEventBus);
+        ModTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
+        ModContainerTypes.CONTAINER_TYPES.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
