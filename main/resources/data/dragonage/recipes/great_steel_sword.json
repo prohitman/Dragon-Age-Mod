@@ -1,0 +1,11 @@
+{
+  "type": "dragonage:forgering_table_recipe_serializer",
+  "first_ingredient": {
+    "item": "dragonage:steel_sword"
+  },
+  "second_ingredient": {
+    "item": "dragonage:steel_ingot"
+  },
+  "result": "dragonage:great_steel_sword",
+  "count": 1
+}
