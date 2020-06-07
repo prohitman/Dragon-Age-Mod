@@ -38,20 +38,20 @@ public class ForgeringTableContainer extends RecipeBookContainer<CraftingInvento
 		this.player = playerInventory.player;
 
 		// FT's inventory
-		this.addSlot(new Slot(this.inputSlots, 0, 27, 47));
-		this.addSlot(new Slot(this.inputSlots, 1, 76, 47));
-		this.addSlot(new CraftingResultSlot(playerInventory.player, this.inputSlots, this.outputSlot, 2, 134, 47));
+		this.addSlot(new Slot(this.inputSlots, 0, 25, 59));
+		this.addSlot(new Slot(this.inputSlots, 1, 66, 59));
+		this.addSlot(new CraftingResultSlot(playerInventory.player, this.inputSlots, this.outputSlot, 2, 124, 59));
 
 		// Main Inventory
 		for (int i = 0; i < 3; ++i) {
 			for (int j = 0; j < 9; ++j) {
-				this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+				this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 108 + i * 18));
 			}
 		}
 
 		// HotBar
 		for (int k = 0; k < 9; ++k) {
-			this.addSlot(new Slot(playerInventory, k, 8 + k * 18, 142));
+			this.addSlot(new Slot(playerInventory, k, 8 + k * 18, 166));
 		}
 
 	}
@@ -81,26 +81,15 @@ public class ForgeringTableContainer extends RecipeBookContainer<CraftingInvento
 
 	public void onCraftMatrixChanged(IInventory inventoryIn) {
 		this.canInteractwithCallable.consume((world, pos) -> {
-			updatecraftmatrix(this.windowId, world, this.player, (CraftingInventory) this.inputSlots, this.outputSlot);
+			updatecraftmatrix(this.windowId, world, this.player, this.inputSlots, this.outputSlot);
 		});
+
 	}
 
 	@Override
 	public boolean canInteractWith(PlayerEntity playerIn) {
 		return isWithinUsableDistance(canInteractwithCallable, playerIn, ModBlocks.FORGERING_TABLE.get());
 	}
-
-//	private static ForgeringTableTileEntity getTileEntity(final PlayerInventory playerInventory,
-//			final PacketBuffer data) {
-//		Objects.requireNonNull(playerInventory, "playerInventory cannot be null");
-//		Objects.requireNonNull(data, "data cannot be null");
-//		final TileEntity tileAtPos = playerInventory.player.world.getTileEntity(data.readBlockPos());
-//		if (tileAtPos instanceof ForgeringTableTileEntity) {
-//			return (ForgeringTableTileEntity) tileAtPos;
-//		}
-//
-//		throw new IllegalStateException("Tile Entity is not correct" + tileAtPos);
-//	}
 
 	@Override
 	public void fillStackedContents(RecipeItemHelper itemHelperIn) {
@@ -158,6 +147,9 @@ public class ForgeringTableContainer extends RecipeBookContainer<CraftingInvento
 			ItemStack itemstack1 = slot.getStack();
 			itemstack = itemstack1.copy();
 			if (index == 2) {
+				this.canInteractwithCallable.consume((world, blockpos) -> {
+					itemstack1.getItem().onCreated(itemstack1, world, playerIn);
+				});
 				if (!this.mergeItemStack(itemstack1, 3, 39, true)) {
 					return ItemStack.EMPTY;
 				}
@@ -181,7 +173,10 @@ public class ForgeringTableContainer extends RecipeBookContainer<CraftingInvento
 				return ItemStack.EMPTY;
 			}
 
-			slot.onTake(playerIn, itemstack1);
+			ItemStack itemstack2 = slot.onTake(playerIn, itemstack1);
+			if (index == 2) {
+				playerIn.dropItem(itemstack2, false);
+			}
 		}
 
 		return itemstack;

@@ -13,13 +13,12 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class ForgeringTableScreen extends ContainerScreen<ForgeringTableContainer> {
-	public static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation(DragonAge.MOD_ID,
-			"textures/gui/forging_table_gui.png");
+
+	private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation(DragonAge.MOD_ID, "textures/gui/forging_table_gui.png");
 
 	public ForgeringTableScreen(ForgeringTableContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
 		super(screenContainer, inv, titleIn);
-		this.guiLeft = 0;
-		this.guiTop = 0;
+		this.ySize = 189;
 	}
 
 	@Override
@@ -41,10 +40,8 @@ public class ForgeringTableScreen extends ContainerScreen<ForgeringTableContaine
 	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
 		RenderSystem.color4f(1.0f, 1.0f, 1.0f, 1.0f);
 		this.minecraft.getTextureManager().bindTexture(BACKGROUND_TEXTURE);
-		int i = (this.width - 176) / 2;
-		int j = (this.height - 190) / 2;
-		this.blit(i, j, 0, 0, 175, 189);
+		int i = (this.width - this.xSize) / 2;
+		int j = (this.height - this.ySize) / 2;
+		this.blit(i, j, 0, 0, this.xSize, this.ySize);// x: 175, y: 189
 	}
-	
-	
 }

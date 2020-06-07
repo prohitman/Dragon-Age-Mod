@@ -10,6 +10,7 @@
 	
 	//Items
 	"item.dragonage.steel_ingot": "Steel Ingot",
+	"item.dragonage.steel_nugget": "Steel Nugget",
 	
 	//Weapons
 	"item.dragonage.steel_sword": "Steel Sword",
@@ -47,5 +48,5 @@
 	"block.dragonage.dragonage_candle": "Candle",
 	
 	//Containers
-	"container.forgering_table": "Forging Table Container"
+	"container.forgering_table": "Forging Table"
 }

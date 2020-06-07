@@ -13,7 +13,7 @@ import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.inventory.container.SimpleNamedContainerProvider;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.DirectionProperty;
-import net.minecraft.state.StateContainer.Builder;
+import net.minecraft.state.StateContainer;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
@@ -111,16 +111,6 @@ public class ForgeringTableBlock extends Block {
 		return state.rotate(mirrorIn.toRotation(state.get(FACING)));
 	}
 
-//	@Override
-//	public boolean hasTileEntity(BlockState state) {
-//		return true;
-//	}
-//
-//	@Override
-//	public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-//		return ModTileEntityTypes.FORGERING_TABLE_TILE_ENTITY.get().create();
-//	}
-
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
 			Hand handIn, BlockRayTraceResult p_225533_6_) {
 		if (worldIn.isRemote) {
@@ -137,34 +127,8 @@ public class ForgeringTableBlock extends Block {
 		}, text_component);
 	}
 
-//	public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
-//		if (stack.hasDisplayName()) {
-//			TileEntity tileentity = worldIn.getTileEntity(pos);
-//			if (tileentity instanceof ForgeringTableTileEntity) {
-//				((ForgeringTableTileEntity) tileentity).setCustomName(stack.getDisplayName());
-//			}
-//		}
-//
-//	}
-//
-//	@Override
-//	public void onReplaced(BlockState state, World worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
-//		if (state.getBlock() != newState.getBlock()) {
-//			TileEntity te = worldIn.getTileEntity(pos);
-//			if (te instanceof ForgeringTableTileEntity) {
-//				InventoryHelper.dropInventoryItems(worldIn, pos, ((ForgeringTableTileEntity) te));
-//			}
-//		}
-//	}
-
 	@Override
-	protected void fillStateContainer(Builder<Block, BlockState> builder) {
+	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(FACING);
-	}
-	
-	@Override
-	public float getAmbientOcclusionLightValue(BlockState state, IBlockReader worldIn, BlockPos pos) {
-		// TODO Auto-generated method stub
-		return 1.0f;
 	}
 }

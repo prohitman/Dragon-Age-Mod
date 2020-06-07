@@ -96,8 +96,7 @@ public class ForgeringTableRecipes implements IRecipe<CraftingInventory> {
 		return ModRecipes.FORGERING_TABLE_RECIPE_SERIALIZER.get();
 	}
 
-	public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>>
-			implements IRecipeSerializer<ForgeringTableRecipes> {
+	public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<ForgeringTableRecipes> {
 		private final IRecipeFactory<ForgeringTableRecipes> factory;
 
 		public Serializer(IRecipeFactory<ForgeringTableRecipes> factory) {

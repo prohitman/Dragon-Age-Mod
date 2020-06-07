@@ -1,6 +1,6 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "minecraft:block/block",
+	"parent": "block/cube",
 	"ambientocclusion": false,
 	"textures": {
 		"0": "dragonage:block/forgering_table",
@@ -120,7 +120,13 @@
 		{
 			"name": "forgering_table",
 			"origin": [8, 8, 8],
-			"children": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+			"children": [
+				{
+					"name": "VoxelShapes",
+					"origin": [8, 8, 8],
+					"children": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+				}
+			]
 		}
 	]
 }

@@ -1,0 +1,11 @@
+{
+  "type": "dragonage:forgering_table_recipe_serializer",
+  "first_ingredient": {
+    "item": "minecraft:iron_ingot"
+  },
+  "second_ingredient": {
+    "item": "minecraft:coal"
+  },
+  "result": "dragonage:steel_ingot",
+  "count": 1
+}

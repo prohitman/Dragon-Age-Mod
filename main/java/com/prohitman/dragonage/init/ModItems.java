@@ -22,6 +22,7 @@ public class ModItems
 	
 	//Materials
 	public static final RegistryObject<Item> STEEL_INGOT = ITEMS.register("steel_ingot", () -> new Item(new Item.Properties().group(ItemGroup.MATERIALS).maxStackSize(64)));
+	public static final RegistryObject<Item> STEEL_NUGGET = ITEMS.register("steel_nugget", () -> new Item(new Item.Properties().group(ItemGroup.MATERIALS).maxStackSize(64)));
 	
 	//Weapons
 	public static final RegistryObject<Item> STEEL_SWORD = ITEMS.register("steel_sword", () -> new SwordItem(ModItemTiers.STEEL, 3, -2.4F, new Item.Properties().group(ModItemGroups.DRAGON_AGE_WEAPONS)));
