@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 
 public interface IModRecipeTypes<T extends IRecipe<?>>
 {
-	IRecipeType<ForgeringTableRecipes> FORGERING = register("forgering");
+	IRecipeType<ForgingTableRecipes> FORGING = register("forging");
 
 	static <T extends IRecipe<?>> IRecipeType<T> register(final String key) {
 		return Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(key), new IRecipeType<T>() {

@@ -46,7 +46,8 @@
 	//Blocks
 	"block.dragonage.steel_block": "Block Of Steel",
 	"block.dragonage.dragonage_candle": "Candle",
+	"block.dragonage.forging_table": "Forging Table",
 	
 	//Containers
-	"container.forgering_table": "Forging Table"
+	"container.forging_table": "Forging Table"
 }

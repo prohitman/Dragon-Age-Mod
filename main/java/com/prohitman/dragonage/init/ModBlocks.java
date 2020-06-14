@@ -2,7 +2,7 @@ package com.prohitman.dragonage.init;
 
 import com.prohitman.dragonage.DragonAge;
 import com.prohitman.dragonage.blocks.CandleBlock;
-import com.prohitman.dragonage.blocks.ForgeringTableBlock;
+import com.prohitman.dragonage.blocks.ForgingTableBlock;
 import com.prohitman.dragonage.blocks.SteelBlock;
 
 import net.minecraft.block.Block;
@@ -22,7 +22,7 @@ public class ModBlocks
 	//Decorations
 	public static final RegistryObject<Block> CANDLE = BLOCKS.register("dragonage_candle", () -> new CandleBlock(Block.Properties.create(Material.MISCELLANEOUS).notSolid().hardnessAndResistance(0.0F, 0.0F).lightValue(10).sound(SoundType.SCAFFOLDING)));
 	
-	//Tile Entity Blocks
-	public static final RegistryObject<Block> FORGERING_TABLE = BLOCKS.register("forgering_table", () -> new ForgeringTableBlock(Block.Properties.create(Material.MISCELLANEOUS).notSolid().hardnessAndResistance(5.5F, 6.5F).sound(SoundType.STONE)));
+	//Container/TileEntity Blocks
+	public static final RegistryObject<Block> FORGING_TABLE = BLOCKS.register("forging_table", () -> new ForgingTableBlock(Block.Properties.create(Material.ROCK).notSolid().hardnessAndResistance(2.25F, 3.25F).sound(SoundType.STONE)));
 
 }

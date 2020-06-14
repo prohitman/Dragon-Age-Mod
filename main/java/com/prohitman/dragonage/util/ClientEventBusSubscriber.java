@@ -1,7 +1,7 @@
 package com.prohitman.dragonage.util;
 
 import com.prohitman.dragonage.DragonAge;
-import com.prohitman.dragonage.client.gui.ForgeringTableScreen;
+import com.prohitman.dragonage.client.gui.ForgingTableScreen;
 import com.prohitman.dragonage.init.ModBlocks;
 import com.prohitman.dragonage.init.ModContainerTypes;
 
@@ -19,7 +19,7 @@ public class ClientEventBusSubscriber
 {
 	@SubscribeEvent
 	public static void clientSetup(FMLClientSetupEvent event) {
-		ScreenManager.registerFactory(ModContainerTypes.FORGERING_TABLE_CONTAINER.get(), ForgeringTableScreen::new);
-		RenderTypeLookup.setRenderLayer(ModBlocks.FORGERING_TABLE.get().getBlock(), RenderType.getCutout());
+		ScreenManager.registerFactory(ModContainerTypes.FORGING_TABLE_CONTAINER.get(), ForgingTableScreen::new);
+		RenderTypeLookup.setRenderLayer(ModBlocks.FORGING_TABLE.get().getBlock(), RenderType.getCutout());
 	}
 }

@@ -1,7 +1,7 @@
 package com.prohitman.dragonage.init;
 
 import com.prohitman.dragonage.DragonAge;
-import com.prohitman.dragonage.recipes.ForgeringTableRecipes;
+import com.prohitman.dragonage.recipes.ForgingTableRecipes;
 import com.prohitman.dragonage.recipes.SteelShieldRecipes;
 
 import net.minecraft.item.crafting.IRecipeSerializer;
@@ -18,7 +18,7 @@ public class ModRecipes {
 			.register("crafting_special_steelshielddecoration",
 					() -> new SpecialRecipeSerializer<>(SteelShieldRecipes::new));
 	
-	public static final RegistryObject<IRecipeSerializer<ForgeringTableRecipes>> FORGERING_TABLE_RECIPE_SERIALIZER = RECIPE_SERIALIZERS
-			.register("forgering_table_recipe_serializer",
-					() -> new ForgeringTableRecipes.Serializer(ForgeringTableRecipes::new));
+	public static final RegistryObject<IRecipeSerializer<ForgingTableRecipes>> FORGING_TABLE_RECIPE_SERIALIZER = RECIPE_SERIALIZERS
+			.register("forging_table_recipe_serializer",
+					() -> new ForgingTableRecipes.Serializer(ForgingTableRecipes::new));
 }

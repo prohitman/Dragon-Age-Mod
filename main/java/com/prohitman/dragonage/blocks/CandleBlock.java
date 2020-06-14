@@ -136,6 +136,31 @@ public class CandleBlock extends Block {
 			worldIn.addParticle(ParticleTypes.SMOKE, d0, d1, d2, 0.0D, 0.0D, 0.0D);
 			worldIn.addParticle(ParticleTypes.FLAME, d0, d1, d2, 0.0D, 0.0D, 0.0D);
 		}
+		
+		else if(stateIn.get(CANDLES) > 1)
+		{
+			double d0 = (double) pos.getX() + 0.4633D;
+			double d1 = (double) pos.getY() + 0.65D;
+			double d2 = (double) pos.getZ() + 0.65D;
+			worldIn.addParticle(ParticleTypes.SMOKE, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+			worldIn.addParticle(ParticleTypes.FLAME, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+			
+			double d3 = (double) pos.getX() + 0.3225D;
+			double d4 = (double) pos.getY() + 0.55D;
+			double d5 = (double) pos.getZ() + 0.375D;
+			worldIn.addParticle(ParticleTypes.SMOKE, d3, d4, d5, 0.0D, 0.0D, 0.0D);
+			worldIn.addParticle(ParticleTypes.FLAME, d3, d4, d5, 0.0D, 0.0D, 0.0D);
+			
+			if (stateIn.get(CANDLES) == 3)
+			{
+				double d6 = (double) pos.getX() + 0.68D;
+				double d7 = (double) pos.getY() + 0.575D;
+				double d8 = (double) pos.getZ() + 0.425D;
+				worldIn.addParticle(ParticleTypes.SMOKE, d6, d7, d8, 0.0D, 0.0D, 0.0D);
+				worldIn.addParticle(ParticleTypes.FLAME, d6, d7, d8, 0.0D, 0.0D, 0.0D);
+			}
+		}
+		
 
 	}
 }

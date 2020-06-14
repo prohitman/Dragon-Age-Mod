@@ -1,5 +1,5 @@
 {
-  "type": "dragonage:forgering_table_recipe_serializer",
+  "type": "dragonage:forging_table_recipe_serializer",
   "first_ingredient": {
     "item": "dragonage:steel_sword"
   },
